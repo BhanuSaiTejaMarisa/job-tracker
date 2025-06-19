@@ -1,0 +1,67 @@
+{
+  "jobs": [
+    {
+      "id": "d54e",
+      "role": "SDE-1 FE",
+      "company": "Samsung",
+      "salary": 30,
+      "location": "Bangalore, KA, India",
+      "status": "Applied",
+      "priority": "Low",
+      "contact": "9912365459",
+      "notes": "",
+      "interviewRounds": [
+        {
+          "title": "HR Call",
+          "date": "",
+          "result": "Pending",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": "0546",
+      "role": "Senior FE",
+      "company": "Virtusa",
+      "salary": 24,
+      "location": "Hyderabad",
+      "status": "Interviewing",
+      "priority": "High",
+      "contact": "9912365459",
+      "notes": "It's a good company and a good salary so hoping I'll get selected for furhter rounds",
+      "interviewRounds": [
+        {
+          "title": "HR Call",
+          "date": "2025-06-11T18:30:00.000Z",
+          "result": "Selected",
+          "notes": "Round 1 just general call, did well."
+        },
+        {
+          "title": "Assignment",
+          "date": "2025-06-16T18:30:00.000Z",
+          "result": "Selected",
+          "notes": "Book Library"
+        }
+      ]
+    },
+    {
+      "id": "abd8",
+      "role": "SDE-2 FE",
+      "company": "PWC",
+      "salary": 22,
+      "location": "Hyderabad",
+      "status": "Interviewing",
+      "priority": "High",
+      "contact": "9912365459",
+      "notes": "",
+      "interviewRounds": [
+        {
+          "title": "Assignment",
+          "date": "2025-06-16T18:30:00.000Z",
+          "result": "Pending",
+          "notes": ""
+        }
+      ]
+    }
+  ]
+}
