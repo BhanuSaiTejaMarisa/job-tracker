@@ -12,23 +12,27 @@ export const getJobs = async (filters?: Record<string, string>) => {
     });
   }
 
-  const response = await axiosInstance.get(`/jobs?${params.toString()}`);
+  const response = await axiosInstance.get(`/api/jobs?${params.toString()}`);
   return response.data;
 };
 
 export const getJobById = async (id: string) => {
-  const response = await axiosInstance.get(`/jobs/${id}`);
+  const response = await axiosInstance.get(`/api/jobs/${id}`);
   return response.data;
 };
 
 export const createJob = async (jobData: JobFormInterface) => {
-  const response = await axiosInstance.post("/jobs", jobData);
+  const response = await axiosInstance.post("/api/jobs", jobData);
   return response.data;
 };
 
 export const updateJob = async (id: string, jobData: JobFormInterface) => {
-  const response = await axiosInstance.put(`/jobs/${id}`, jobData);
+  const response = await axiosInstance.put(`/api/jobs/${id}`, jobData);
   return response.data;
 };
 
-// You can add more functions like getJobs, updateJob, etc.
+
+export const deleteJob = async (id: string) => {
+  const response = await axiosInstance.delete(`/api/jobs/${id}`);
+  return response.data;
+};

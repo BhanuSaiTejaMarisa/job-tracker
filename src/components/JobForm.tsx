@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 const initJobFormData: JobFormInterface = {
   role: "",
   company: "",
-  salary: "",
+  salary: 0,
   location: "",
   status: "",
   priority: "",
@@ -44,6 +44,12 @@ const JobForm: React.FC<JobFormProps> = ({ jobData }) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    if (name === "salary") {
+      // Validate salary to be a number
+      // const numericValue = value.replace(/[^0-9]/g, "");
+      setFormData({ ...formData, [name]: Number(value) });
+      return;
+    }
     setFormData({ ...formData, [name]: value });
   };
 
@@ -53,8 +59,8 @@ const JobForm: React.FC<JobFormProps> = ({ jobData }) => {
     try {
       let response;
       setLoading(true);
-      if (jobData && jobData.id) {
-        response = await updateJob(jobData.id, formData);
+      if (jobData && jobData._id) {
+        response = await updateJob(jobData._id, formData);
         setFormData(response);
         toast.success("Job updated successfully!");
       } else {
@@ -89,6 +95,7 @@ const JobForm: React.FC<JobFormProps> = ({ jobData }) => {
           value={formData.company}
           onChange={handleChange}
         />
+        {/* salary to be validated to a number */}
         <TextField
           name="salary"
           placeholder="30 LPA"

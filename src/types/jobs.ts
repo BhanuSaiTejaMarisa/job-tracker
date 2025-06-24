@@ -10,10 +10,10 @@ export interface InterviewInterface {
 }
 
 export interface JobFormInterface {
-  id?: string; // optional for new jobs
+  _id?: string; // optional for new jobs
   role: string;
   company: string;
-  salary: string;
+  salary: number;
   location: string;
   status: string;
   priority: string;
@@ -23,5 +23,5 @@ export interface JobFormInterface {
 }
 
 export interface JobEntity extends JobFormInterface {
-  id: string;
+  _id: string;
 }

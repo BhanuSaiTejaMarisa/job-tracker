@@ -4,7 +4,7 @@ import JobCard from "@/components/JobCard";
 import { JobEntity } from "@/types/jobs";
 import { MenuItem, Select, Slider, Stack, Typography } from "@mui/material";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { toast } from "react-toastify";
 
 export default function JobsListPage() {
@@ -37,6 +37,10 @@ export default function JobsListPage() {
     setSalaryRange(newValue);
   };
 
+  const handleDelete = useCallback((id: string) => {
+    setJobs((prevJobs) => prevJobs.filter((job) => job._id !== id));
+  }, []);
+
   return (
     <div>
       <Typography variant="h5" component="h1" className="mb-4 font-bold">
@@ -58,7 +62,7 @@ export default function JobsListPage() {
             valueLabelDisplay="auto"
             sx={{ width: "300px" }}
           />
-           <Typography
+          <Typography
             variant="body2"
             className="min-w-[48px] text-left text-gray-600"
           >
@@ -85,8 +89,12 @@ export default function JobsListPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {isLoading ? (
           <div>Loading...</div>
+        ) : jobs.length > 0 ? (
+          jobs.map((job: JobEntity) => (
+            <JobCard key={job._id} onDelete={handleDelete} {...job} />
+          ))
         ) : (
-          jobs.map((job: JobEntity) => <JobCard key={job.id} {...job} />)
+          <div>No jobs found.</div>
         )}
       </div>
       <div className="mt-8 flex justify-end">
